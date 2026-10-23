@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sustantivos Mágicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ecdcff;--bg2:#c7a2f5;--card:#fff;--ink:#1b1030;--pu:#7b2cbf;--pu2:#e6d3fc;--bk:#150a24;--gn:#1f9d55;--rd:#d33a3a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg1:#1a0c33;--bg2:#3b1a6e;--card:#120a1f;--ink:#f6efff;--pu2:#34205a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#1a0c33;--bg2:#3b1a6e;--card:#120a1f;--ink:#f6efff;--pu2:#34205a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:600 20px/1.35 "Baloo 2","Comic Sans MS","Trebuchet MS",sans-serif;background:radial-gradient(rgba(255,255,255,.45) 2px,transparent 3px) 0 0/64px 64px,linear-gradient(160deg,var(--bg1),var(--bg2)) fixed}
+.deco{position:fixed;inset:0;pointer-events:none;font-size:44px;opacity:.25;z-index:0}
+.deco i{position:absolute;font-style:normal}
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:10px}
+header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--bk);color:#fff;border:3px solid var(--pu);border-radius:20px;padding:8px 14px}
+header b{flex:1;min-width:140px}#tm{background:var(--pu);border-radius:12px;padding:2px 12px;font-weight:800}
+.card{background:var(--card);border:4px solid var(--pu);border-radius:26px;padding:16px;margin-top:10px}
+.c{text-align:center}.big{font-size:70px;line-height:1}
+h1{font-size:30px;margin:6px 0;color:var(--pu)}h2{font-size:24px;margin:4px 0}
+input.t{font:inherit;font-size:24px;width:100%;max-width:340px;margin:5px;padding:8px;border:4px solid var(--pu);border-radius:16px;text-align:center;background:var(--card);color:var(--ink)}
+.btn{font:inherit;font-weight:800;font-size:22px;background:var(--pu);color:#fff;border:0;border-radius:16px;padding:8px 20px;cursor:pointer;box-shadow:0 4px 0 var(--bk);margin:4px}
+.btn.k{background:var(--bk);box-shadow:0 4px 0 var(--pu)}.btn.s{font-size:16px;padding:4px 12px}.btn.sel{outline:5px solid #ffd54a}
+.btn:active{transform:translateY(3px)}
+.btn:focus-visible,input:focus-visible,.jar:focus-visible{outline:4px solid #ffb300;outline-offset:2px}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:10px}
+.gc{background:var(--bk);color:#fff;border:4px solid var(--pu);border-radius:24px;padding:16px;text-align:center;cursor:pointer;font:inherit;font-weight:800;font-size:22px}
+.gc span{display:block;font-size:64px}.gc:hover{transform:rotate(-2deg) scale(1.03)}
+.gr{display:grid;gap:2px;margin:8px auto;max-width:520px;touch-action:none;user-select:none}
+.x{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(14px,4.3vw,26px);background:var(--pu2);border-radius:6px;cursor:pointer}
+.x.on{background:#ffd54a;color:#000}.f0{background:#ff8fab}.f1{background:#8ee0a0}.f2{background:#8ec9ff}.f3{background:#ffc27a}.f4{background:#d6a3ff}.f5{background:#f2e96b}.x[class*=" f"]{color:#000}
+.wl{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.wl span{background:var(--pu2);border-radius:12px;padding:2px 10px;font-size:18px}.wl .d{text-decoration:line-through;opacity:.5}
+.cw{display:grid;gap:2px;margin:8px auto}.cc{position:relative;aspect-ratio:1}
+.cc b{position:absolute;left:3px;top:0;font-size:11px;color:var(--pu);z-index:1}
+.ci{width:100%;height:100%;font:800 clamp(14px,4vw,24px) "Baloo 2",sans-serif;text-align:center;text-transform:uppercase;border:2px solid var(--pu);border-radius:6px;padding:0;background:var(--card);color:var(--ink)}
+.ci.ok{background:#8ee0a0;color:#000}.ci.bad{background:#ffb3b3;color:#000}
+.cl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-bottom:2px dashed var(--pu2)}.cl em{font-size:38px;font-style:normal}
+.jars{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.jar{position:relative;width:min(44vw,230px);cursor:pointer}.jar svg{width:100%;display:block}
+.lid{transition:transform .6s;transform-box:fill-box;transform-origin:center}.jar.open .lid{transform:translate(46px,-34px) rotate(26deg)}
+.in{position:absolute;left:13%;right:13%;top:22%;bottom:7%;display:flex;flex-wrap:wrap;align-content:flex-end;gap:2px;overflow:hidden;pointer-events:none}
+.in span{background:#fff;color:#000;border-radius:8px;padding:0 5px;font-size:12px}
+.tray{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px;min-height:50px}
+.chip{background:var(--pu);color:#fff;border-radius:14px;padding:4px 14px;font-weight:800;font-size:20px;touch-action:none;cursor:grab;user-select:none}
+.chip.fl{box-shadow:0 8px 16px rgba(0,0,0,.4)}
+.sh{animation:sh .4s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#msg{min-height:30px;text-align:center;font-weight:800;color:var(--pu)}
+.trophy{font-size:110px;animation:pop .9s}@keyframes pop{0%{transform:scale(.2) rotate(-30deg)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+table{margin:8px auto;border-collapse:collapse}td{border:2px solid var(--pu);padding:4px 12px;text-align:left}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{.deco,header,.noprint{display:none}body{background:#fff;color:#000}}
+</style></head><body>
+<div class="deco" aria-hidden="true"><i style="left:5%;top:8%">☁️</i><i style="left:80%;top:15%">⭐</i><i style="left:12%;top:70%">🌙</i><i style="left:85%;top:75%">☁️</i><i style="left:50%;top:92%">⭐</i></div>
+<div class="wrap">
+<header><span style="font-size:34px" aria-hidden="true">🦉</span><b id="who">Sustantivos Mágicos</b><span id="tm" style="display:none">⏱️ 00:00</span><button class="btn k s" id="back" style="display:none">⬅ Menú</button></header>
+<main id="m"></main></div>
+<script>
+/* ===== DATOS (edita aquí las palabras de cada juego) ===== */
+var SP=[{t:"Sustantivos propios",w:[["Bolivia","🇧🇴"],["Sucre","🏙️"],["Kantuta","🌺"],["Santiago","🧑"],["Perlita","🐶"],["Mateo","👦"],["Chuquisaca","🗺️"],["Santa Cruz","🌳"],["Cochabamba","🌄"],["Yotala","🏘️"]]},
+{t:"Sustantivos comunes",w:[["pez","🐟"],["serpiente","🐍"],["taza","☕"],["mesa","🍽️"],["lago","🏞️"],["zapato","👟"],["mochila","🎒"],["cielo","☁️"],["toalla","🛁"],["mariposa","🦋"]]}];
+var CW={1:[["ANA","👧","Es el nombre de una niña."],["PIPO","🐶","Es el nombre de un perrito."],["BENI","🌴","Es un departamento de Bolivia donde hace calor."],["GATO","🐱","Es un animal que dice miau."],["CASA","🏠","Es donde vive tu familia."],["LUNA","🌙","Brilla de noche en el cielo."],["PATO","🦆","Es un ave que nada y dice cuac."],["OSO","🐻","Es un animal grande y peludo que come miel."],["PANDO","🌳","Es un departamento de Bolivia lleno de selva."],["FLOR","🌸","Es bonita, tiene pétalos y huele rico."]],
+2:[["TITICACA","","Es el lago navegable más alto, entre Bolivia y Perú."],["ORURO","","Es un departamento famoso por su Carnaval."],["ILLIMANI","","Es el nevado que se ve desde La Paz."],["CHARANGO","","Es un instrumento andino pequeño de cuerdas."],["ELEFANTE","","Es un animal enorme con trompa larga."],["CUADERNO","","Lo usas en clase para escribir."],["GUITARRA","","Es un instrumento con seis cuerdas."],["VENTANA","","Por ahí entra la luz al cuarto."],["BICICLETA","","Tiene dos ruedas y pedales."],["MARCELO","","Es el nombre propio de un niño."]]};
+var FJ=[["Sucre","p","una ciudad","🏙️",1],["La Paz","p","una ciudad","🏔️",1],["Fielding","p","un colegio","🏫"],["Samantha","p","una niña","👧",1],["Pipo","p","una mascota","🐶",1],["Pando","p","un departamento","🌳"],["Beni","p","un departamento","🌴",1],["Serrano","p","un apellido","👨"],["La Palma","p","un lugar","📍"],["Bolívar","p","un héroe","🦸"],
+["gallina","c","","🐔",1],["conejo","c","","🐰",1],["coche","c","","🚗",1],["avión","c","","✈️"],["chompa","c","","🧥",1],["cuchara","c","","🥄"],["maceta","c","","🪴"],["llama","c","","🦙"],["luna","c","","🌙",1],["estrellas","c","","⭐"]];
+/* ===== GENERADORES ===== */
+function shuf(a){return a.slice().sort(function(){return Math.random()-.5})}
+function gen(ws,n,dg){var ds=[[0,1],[1,0]];if(dg)ds.push([1,1],[1,-1]);
+for(var N=n;N<n+4;N++){for(var at=0;at<4000;at++){var g=[],pl=[],ok=true,i;for(i=0;i<N;i++)g.push(new Array(N).fill(""));
+var ord=ws.map(function(w,i){return i}).sort(function(a,b){return ws[b].length-ws[a].length||Math.random()-.5});
+for(var oi=0;oi<ord.length&&ok;oi++){var w=ws[ord[oi]],put=false;
+for(var t=0;t<60&&!put;t++){var d=ds[Math.floor(Math.random()*ds.length)],r=Math.floor(Math.random()*N),c=Math.floor(Math.random()*N),er=r+d[0]*(w.length-1),ec=c+d[1]*(w.length-1);
+if(er<0||er>=N||ec<0||ec>=N)continue;var cs=[],f=true;
+for(var k=0;k<w.length;k++){var rr=r+d[0]*k,cc=c+d[1]*k;if(g[rr][cc]&&g[rr][cc]!=w[k]){f=false;break}cs.push([rr,cc])}
+if(!f)continue;cs.forEach(function(p,k){g[p[0]][p[1]]=w[k]});pl[ord[oi]]=cs;put=true}
+if(!put)ok=false}
+if(ok){var A="ABCDEFGHIJKLMNOPQRSTUVWXYZ";for(var a=0;a<N;a++)for(var b=0;b<N;b++)if(!g[a][b])g[a][b]=A[Math.floor(Math.random()*26)];return{g:g,n:N,pl:pl}}}}
+return null}
+function cgen(ws){var best=null;
+for(var at=0;at<4000;at++){var o=shuf(ws),m=0;for(var i=1;i<o.length;i++)if(o[i].length>o[m].length)m=i;o.unshift(o.splice(m,1)[0]);
+var map={},pl=[];
+function can(w,r,c,d){var cross=0,e=function(a,b){return map[a+","+b]},k;
+if(e(r-(d?1:0),c-(d?0:1))||e(r+(d?w.length:0),c+(d?0:w.length)))return false;
+for(k=0;k<w.length;k++){var rr=r+(d?k:0),cc=c+(d?0:k),x=e(rr,cc);
+if(x){if(x.l!=w[k]||(x.m&(1<<d)))return false;cross++}
+else if(d?(e(rr,cc-1)||e(rr,cc+1)):(e(rr-1,cc)||e(rr+1,cc)))return false}
+return cross>0}
+function put(w,r,c,d,idx){for(var k=0;k<w.length;k++){var key=(r+(d?k:0))+","+(c+(d?0:k));if(map[key])map[key].m|=1<<d;else map[key]={l:w[k],m:1<<d}}pl.push({w:w,r:r,c:c,d:d,i:idx})}
+put(o[0],0,0,0,ws.indexOf(o[0]));
+for(i=1;i<o.length;i++){var w=o[i],cand=[];
+pl.forEach(function(p){for(var a=0;a<p.w.length;a++)for(var b=0;b<w.length;b++)if(p.w[a]==w[b]){var d=1-p.d,r=p.r+(p.d?a:0),c=p.c+(p.d?0:a);if(d)r-=b;else c-=b;if(can(w,r,c,d))cand.push([r,c,d])}});
+if(cand.length){var q=cand[Math.floor(Math.random()*cand.length)];put(w,q[0],q[1],q[2],ws.indexOf(w))}}
+if(!best||pl.length>best.pl.length)best={pl:pl,map:map};if(pl.length==ws.length)break}
+return best}
+//UI
+var $=function(i){return document.getElementById(i)},M=$("m"),P={},G=null,TM={s:0,id:0,t0:0},GR={1:"Primero",2:"Segundo"};
+var PR=["¡Muy bien! 🌟","¡Excelente! 🎉","¡Genial! 👏","¡Súper! 💜","¡Así se hace! 🏆"],pr=function(){return PR[Math.floor(Math.random()*PR.length)]};
+function fmt(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function tstart(){clearInterval(TM.id);TM.t0=Date.now();TM.s=0;$("tm").textContent="⏱️ 00:00";TM.id=setInterval(function(){TM.s=Math.floor((Date.now()-TM.t0)/1000);$("tm").textContent="⏱️ "+fmt(TM.s)},250)}
+function tstop(){clearInterval(TM.id);TM.s=Math.floor((Date.now()-TM.t0)/1000)}
+var V=null;function pick(){if(!window.speechSynthesis)return;var vs=speechSynthesis.getVoices().filter(function(v){return /^es/i.test(v.lang)&&!/jorge|diego|juan|pablo|carlos|enrique|male$/i.test(v.name)});V=vs.filter(function(v){return /female|mujer|m[oó]nica|paulina|helena|sabina|luc[ií]a|elvira|laura|google|sofia|dalia/i.test(v.name)})[0]||vs[0]||null}
+if(window.speechSynthesis){pick();speechSynthesis.onvoiceschanged=pick}
+function say(t){if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="es-ES";if(V){u.voice=V;u.lang=V.lang}u.pitch=1.3;u.rate=.9;speechSynthesis.speak(u)}
+function rk(g){return"sm:"+P.name+":"+P.grade+":"+g}
+function getRec(g){try{var v=localStorage.getItem(rk(g));return v?+v:null}catch(e){return null}}
+function setRec(g,s){try{localStorage.setItem(rk(g),s)}catch(e){}}
+function hdr(g){$("who").textContent=P.name?"👋 "+P.name+" · "+GR[P.grade]+" de primaria":"Sustantivos Mágicos";$("tm").style.display=g?"":"none";$("back").style.display=g?"":"none"}
+$("back").onclick=function(){tstop();menu()};
+var GAMES={sopa:{n:"Sopa de letras",ic:"🔤",run:sopa},cruci:{n:"Crucigrama",ic:"✏️",run:cruci},fra:{n:"Los frascos",ic:"🫙",run:frascos}};
+function start(g){G=g;hdr(1);tstart();GAMES[g].run()}
+function reg(){if(window.speechSynthesis)speechSynthesis.cancel();P={};hdr(0);
+M.innerHTML='<div class="card c"><div class="big">🦉</div><h1>¡Bienvenido a Sustantivos Mágicos!</h1><input class="t" id="n1" placeholder="Nombre" aria-label="Nombre" autocomplete="off"><br><input class="t" id="n2" placeholder="Apellido" aria-label="Apellido" autocomplete="off"><p>Elige tu grado:</p><div class="row"><button class="btn" data-g="1">1.º Primero</button><button class="btn" data-g="2">2.º Segundo</button></div><button class="btn k" id="go">¡Entrar! ▶</button><p id="er" style="color:var(--rd)"></p></div>';
+var gsel=0;[].forEach.call(M.querySelectorAll("[data-g]"),function(b){b.onclick=function(){gsel=+b.dataset.g;[].forEach.call(M.querySelectorAll("[data-g]"),function(x){x.classList.remove("sel")});b.classList.add("sel")}});
+$("go").onclick=function(){var a=$("n1").value.trim(),b=$("n2").value.trim();if(!a||!b||!gsel){$("er").textContent="Escribe tu nombre, tu apellido y elige tu grado.";return}P={name:a+" "+b,nom:a,grade:gsel};menu()}}
+var EXP="Los sustantivos son palabras que nombran personas, animales, lugares y cosas. Los sustantivos propios son nombres especiales, como Sucre, Bolivia o Ana, y se escriben con letra mayúscula. Los sustantivos comunes nombran cosas en general, como perro, casa o niña, y se escriben con letra minúscula.";
+function menu(){clearInterval(TM.id);hdr(0);
+M.innerHTML='<div class="card c"><h1>¡Hola, '+P.nom+'! Elige un juego</h1><button class="btn k" id="ex">🔊 Escuchar explicación</button><p style="font-size:17px;margin:4px">Propios: Sucre, Bolivia, Ana (mayúscula). Comunes: perro, casa, niña (minúscula).</p></div><div class="menu">'+Object.keys(GAMES).map(function(k){return'<button class="gc" data-k="'+k+'"><span>'+GAMES[k].ic+'</span>'+GAMES[k].n+'</button>'}).join("")+'</div><div class="row"><button class="btn k s" id="cg">Cambiar de grado</button></div>';
+$("ex").onclick=function(){say(EXP)};$("cg").onclick=reg;[].forEach.call(M.querySelectorAll("[data-k]"),function(b){b.onclick=function(){start(b.dataset.k)}})}
+function fin(g,ok,a,e){tstop();var rec=getRec(g),nb=ok&&(rec===null||TM.s<rec);if(nb)setRec(g,TM.s);
+var h=ok?'<div class="trophy">🏆</div><h1>¡Felicidades, '+P.nom+'!</h1><p>'+(nb?"¡Nuevo récord! 🎉":"Récord anterior: "+fmt(rec)+". ¡Puedes batirlo en menos tiempo!")+'</p>':'<div class="big">💪</div><h1>¡Tú puedes, '+P.nom+'!</h1><p>Casi lo logras. ¡Inténtalo otra vez y lo conseguirás!</p>';
+M.innerHTML='<div class="card c">'+h+'<table><tr><td>Estudiante</td><td>'+P.name+'</td></tr><tr><td>Grado</td><td>'+GR[P.grade]+' de primaria</td></tr><tr><td>Juego</td><td>'+GAMES[g].n+'</td></tr><tr><td>Aciertos</td><td>'+a+' ✅</td></tr><tr><td>Errores</td><td>'+e+' ❌</td></tr><tr><td>Tiempo</td><td>'+fmt(TM.s)+'</td></tr><tr><td>Fecha</td><td>'+new Date().toLocaleDateString("es-BO")+'</td></tr></table><div class="row noprint"><button class="btn" id="ag">'+(ok?"Jugar de nuevo 🔄":"Volver a intentarlo 🔄")+'</button><button class="btn k" id="mn">Menú</button><button class="btn k" onclick="window.print()">Imprimir 🖨️</button></div></div>';
+$("ag").onclick=function(){start(g)};$("mn").onclick=menu;say(ok?"¡Felicidades! ¡Puedes batir tu récord!":"¡Tú puedes! Inténtalo otra vez.")}
+/* ===== JUEGO 1: SOPA DE LETRAS ===== */
+function sopa(){var n=P.grade==1?10:12,S=SP.map(function(s){var ws=s.w.map(function(x){return x[0].replace(/ /g,"").toUpperCase()});return{s:s,ws:ws,g:gen(ws,n,P.grade==2),f:[],c:{}}}),cur=0,err=0,sel=null,anch=null;
+function nf(){return S[0].f.filter(Boolean).length+S[1].f.filter(Boolean).length}
+function rs(){var o=S[cur],N=o.g.n,h='<div class="card"><div class="row noprint">'+S.map(function(s,i){return'<button class="btn'+(i==cur?"":" k")+'" data-t="'+i+'">'+s.s.t+'</button>'}).join("")+'</div><div id="msg" aria-live="polite">Encontradas: '+nf()+' de 20. Arrastra o toca la primera y la última letra.</div><div class="gr" id="gr" style="grid-template-columns:repeat('+N+',1fr)">';
+for(var r=0;r<N;r++)for(var c=0;c<N;c++){var k=o.c[r+","+c];h+='<div class="x'+(k!==undefined?" f"+k:"")+'" id="x'+r+'_'+c+'" data-r="'+r+'" data-c="'+c+'">'+o.g.g[r][c]+'</div>'}
+h+='</div><div class="wl">'+o.s.w.map(function(w,i){return'<span class="'+(o.f[i]?"d":"")+'">'+(P.grade==1?w[1]+" ":"")+w[0]+'</span>'}).join("")+'</div><div class="row"><button class="btn k" id="tf">Terminar ✔</button></div></div>';
+M.innerHTML=h;[].forEach.call(M.querySelectorAll("[data-t]"),function(b){b.onclick=function(){cur=+b.dataset.t;anch=null;rs()}});
+$("tf").onclick=function(){fin("sopa",nf()==20&&err<=5,nf(),err)};$("gr").onpointerdown=down}
+function cellOf(x,y){var e=document.elementFromPoint(x,y);return e&&e.dataset&&e.dataset.r!==undefined?{r:+e.dataset.r,c:+e.dataset.c}:null}
+function line(a,b){var dr=b.r-a.r,dc=b.c-a.c,L=Math.max(Math.abs(dr),Math.abs(dc));if(!(dr==0||dc==0||Math.abs(dr)==Math.abs(dc)))return[a];var o=[];for(var i=0;i<=L;i++)o.push({r:a.r+Math.sign(dr)*i,c:a.c+Math.sign(dc)*i});return o}
+function hl(l){[].forEach.call(M.querySelectorAll(".x.on"),function(x){x.classList.remove("on")});l.forEach(function(p){var e=$("x"+p.r+"_"+p.c);if(e)e.classList.add("on")})}
+function down(e){var a=cellOf(e.clientX,e.clientY);if(!a)return;e.preventDefault();var b=a,cp=anch;if(cp)hl(line(cp,a));else hl([a]);
+function mv(ev){var c=cellOf(ev.clientX,ev.clientY);if(c){b=c;hl(line(cp||a,b))}}
+function up(){document.removeEventListener("pointermove",mv);document.removeEventListener("pointerup",up);document.removeEventListener("pointercancel",up);
+if(!cp&&a.r==b.r&&a.c==b.c){anch=a;hl([a]);return}
+var l=line(cp||a,b);anch=null;hl([]);ev(l)}
+document.addEventListener("pointermove",mv);document.addEventListener("pointerup",up);document.addEventListener("pointercancel",up)}
+function ev(l){var o=S[cur],w=l.map(function(p){return o.g.g[p.r][p.c]}).join(""),rw=w.split("").reverse().join(""),hit=-1;
+o.ws.forEach(function(x,i){if(!o.f[i]&&(x==w||x==rw))hit=i});
+if(hit>=0){o.f[hit]=true;l.forEach(function(p){o.c[p.r+","+p.c]=hit%6});rs();$("msg").textContent=pr()+" Encontradas: "+nf()+" de 20";if(nf()==20)setTimeout(function(){fin("sopa",err<=5,20,err)},900)}
+else if(l.length>1){err++;$("msg").textContent="Esa no es. ¡Sigue buscando! 💪"}}
+rs()}
+/* ===== JUEGO 2: CRUCIGRAMA ===== */
+function cruci(){var ws=CW[P.grade],L=cgen(ws.map(function(x){return x[0]})),err=0,N=ws.length,mr=1e9,mc=1e9,XR=0,XC=0;
+L.pl.forEach(function(p){mr=Math.min(mr,p.r);mc=Math.min(mc,p.c);XR=Math.max(XR,p.r+(p.d?p.w.length-1:0));XC=Math.max(XC,p.c+(p.d?0:p.w.length-1))});
+var pl=L.pl.slice().sort(function(a,b){return a.r-b.r||a.c-b.c}),nums={},cnt=0;
+pl.forEach(function(p){var k=p.r+","+p.c;if(!nums[k])nums[k]=++cnt;p.n=nums[k]});
+var W=XC-mc+1,H=XR-mr+1,h='<div class="card"><div id="msg" aria-live="polite">Escribe las palabras. Toca 🔊 si necesitas una pista.</div><div class="cw" style="grid-template-columns:repeat('+W+',1fr);width:min(100%,'+W*46+'px)">';
+for(var r=mr;r<=XR;r++)for(var c=mc;c<=XC;c++){var m=L.map[r+","+c];h+=m?'<div class="cc">'+(nums[r+","+c]?'<b>'+nums[r+","+c]+'</b>':'')+'<input class="ci" maxlength="1" id="w'+r+'_'+c+'" autocomplete="off" aria-label="Letra"></div>':'<div></div>'}
+h+='</div><div class="row"><button class="btn" id="rv">Revisar ✔</button><button class="btn k" id="rs">Volver a empezar</button></div><h2>Pistas</h2>';
+pl.forEach(function(p,i){var cw=ws[p.i];h+='<div class="cl"><b>'+p.n+(p.d?" ⬇️":" ➡️")+'</b>'+(cw[1]?'<em>'+cw[1]+'</em>':'')+'<span style="flex:1">'+(P.grade==2?cw[2]+" ":"")+'('+p.w.length+' letras)</span><button class="btn s" data-i="'+i+'">🔊 Escuchar pista</button></div>'});
+M.innerHTML=h+'</div>';
+[].forEach.call(M.querySelectorAll(".ci"),function(x){x.oninput=function(){x.value=x.value.replace(/[^a-zA-ZñÑ]/g,"").toUpperCase();x.classList.remove("bad","ok")}});
+[].forEach.call(M.querySelectorAll("[data-i]"),function(b){b.onclick=function(){var p=pl[+b.dataset.i];say("Pista número "+p.n+(p.d?", vertical. ":", horizontal. ")+ws[p.i][2]+" Tiene "+p.w.length+" letras y empieza con la letra "+p.w[0]+".")}});
+$("rs").onclick=function(){start("cruci")};
+$("rv").onclick=function(){var okc=0,bad=0;
+pl.forEach(function(p){var s="",full=true,cs=[];for(var k=0;k<p.w.length;k++){var e=$("w"+(p.r+(p.d?k:0))+"_"+(p.c+(p.d?0:k)));cs.push(e);if(!e.value)full=false;s+=e.value}
+if(!full)return;if(s==p.w){okc++;cs.forEach(function(e){e.classList.add("ok")})}else{bad++;cs.forEach(function(e){if(!e.classList.contains("ok"))e.classList.add("bad")})}});
+if(okc==N){fin("cruci",true,N,err);return}err+=bad;
+$("msg").textContent=okc+" de "+N+" palabras correctas ✅. "+(bad?"Revisa las rojas. ¡Tú puedes! 💪":"¡Sigue con las demás! 😊")}}
+/* ===== JUEGO 3: LOS FRASCOS ===== */
+function jar(id,a,b){return'<div class="jar" id="j'+id+'" data-t="'+id+'" tabindex="0" role="button" aria-label="Frasco '+a+' '+b+'"><svg viewBox="0 0 200 270" aria-hidden="true"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".5" stop-color="#c9a6f5" stop-opacity=".25"/><stop offset="1" stop-color="#7b2cbf" stop-opacity=".45"/></linearGradient></defs><g class="lid"><rect x="42" y="6" width="116" height="34" rx="9" fill="#150a24" stroke="#7b2cbf" stroke-width="4"/><path d="M52 16h96M52 28h96" stroke="#7b2cbf" stroke-width="3" opacity=".6"/></g><rect x="52" y="40" width="96" height="22" rx="6" fill="url(#gl)" stroke="#7b2cbf" stroke-width="4"/><path d="M52 62C20 72 14 96 14 120v110c0 22 18 34 40 34h92c22 0 40-12 40-34V120c0-24-6-48-38-58z" fill="url(#gl)" stroke="#7b2cbf" stroke-width="5"/><path d="M32 96v118" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".6"/><rect x="15" y="116" width="170" height="54" fill="#150a24" opacity=".93"/><text x="100" y="140" text-anchor="middle" font-size="21" font-weight="800" fill="#fff">'+a+'</text><text x="100" y="162" text-anchor="middle" font-size="21" font-weight="800" fill="#d6a3ff">'+b+'</text></svg><div class="in" id="in'+id+'"></div></div>'}
+function frascos(){var ws=shuf(FJ.filter(function(w){return P.grade==2||w[4]})),err=0,left=ws.length,tot=ws.length;
+M.innerHTML='<div class="card"><div class="jars">'+jar("p","Sustantivos","propios")+jar("c","Sustantivos","comunes")+'</div><div id="msg" aria-live="polite">Toca un frasco para abrirlo. Luego arrastra cada palabra al frasco correcto.</div><div class="tray" id="tray"></div></div>';
+[].forEach.call(M.querySelectorAll(".jar"),function(j){j.onclick=function(){j.classList.add("open")};j.onkeydown=function(e){if(e.key=="Enter"||e.key==" ")j.classList.add("open")}});
+ws.forEach(function(w){var c=document.createElement("div");c.className="chip";c.textContent=(P.grade==1?w[3]+" ":"")+w[0];c.setAttribute("role","button");$("tray").appendChild(c);drag(c,function(j){
+if(!j.classList.contains("open")){$("msg").textContent="¡Primero toca el frasco para abrirlo! 🫙";return}
+if(j.dataset.t==w[1]){var s=document.createElement("span");s.textContent=w[0];$("in"+w[1]).appendChild(s);c.remove();left--;$("msg").textContent=pr();if(!left)setTimeout(function(){fin("fra",err<=3,tot-err>0?tot:tot,err)},700)}
+else{err++;c.classList.add("sh");setTimeout(function(){c.classList.remove("sh")},400);$("msg").textContent=w[1]=="p"?"«"+w[0]+"» es el nombre de "+w[2]+" en especial, por eso es propio.":"«"+w[0]+"» nombra cosas o animales en general, no uno en especial: es común."}})})}
+function drag(ch,drop){ch.onpointerdown=function(e){e.preventDefault();var cl=ch.cloneNode(true),r=ch.getBoundingClientRect(),dx=e.clientX-r.left,dy=e.clientY-r.top;
+cl.className="chip fl";cl.style.cssText="position:fixed;z-index:99;pointer-events:none;left:"+r.left+"px;top:"+r.top+"px";document.body.appendChild(cl);ch.style.opacity=.3;
+function mv(v){cl.style.left=v.clientX-dx+"px";cl.style.top=v.clientY-dy+"px"}
+function up(v){document.removeEventListener("pointermove",mv);document.removeEventListener("pointerup",up);document.removeEventListener("pointercancel",up);cl.remove();ch.style.opacity=1;var t=document.elementFromPoint(v.clientX,v.clientY),j=t&&t.closest?t.closest(".jar"):null;if(j)drop(j)}
+document.addEventListener("pointermove",mv);document.addEventListener("pointerup",up);document.addEventListener("pointercancel",up)}}
+reg();
+</script></body></html>
